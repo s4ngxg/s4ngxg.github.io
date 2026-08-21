@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon/components";
+import { getSortedPosts } from "../utils/posts";
+
+const posts = await getSortedPosts();
+const categoryCounts = new Map<string, number>();
+const tagCounts = new Map<string, number>();
+
+for (const post of posts) {
+  const category = post.data.category.trim();
+  categoryCounts.set(category, (categoryCounts.get(category) || 0) + 1);
+  for (const rawTag of post.data.tags) {
+    const tag = rawTag.trim();
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  }
+}
+
+const categories = [...categoryCounts].sort(([a], [b]) => a.localeCompare(b));
+const tags = [...tagCounts].sort(([a], [b]) => a.localeCompare(b));
+---
+<section class="side-card sidebar-widget card reveal" id="categories">
+  <div class="widget-heading"><Icon name="fa6-solid:folder-open" /><h3>Categories</h3></div>
+  <div class="category-list">
+    {categories.map(([category, count]) => (
+      <a href={`/archive/?category=${encodeURIComponent(category)}#content`}>
+        <span>{category}</span><b>{count}</b>
+      </a>
+    ))}
+  </div>
+</section>
+
+<section class="side-card sidebar-widget card reveal" id="tags">
+  <div class="widget-heading"><Icon name="fa6-solid:tags" /><h3>Tags</h3></div>
+  <div class="tag-cloud">
+    {tags.map(([tag, count]) => (
+      <a href={`/archive/?tag=${encodeURIComponent(tag)}#content`}><span>{tag}</span><b>{count}</b></a>
+    ))}
+  </div>
+</section>

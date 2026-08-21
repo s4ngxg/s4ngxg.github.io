@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SiteSidebar from "../components/SiteSidebar.astro";
+import { formatDate, getSortedPosts, postExcerpt, postUrl, readingTime } from "../utils/posts";
+
+const posts = await getSortedPosts();
+---
+<BaseLayout>
+  <header class="hero" id="top">
+    <img class="hero-image hero-image-day" src="/assets/hero-day.webp" alt="Góc ghi chép bên cửa sổ trong một buổi sáng trong trẻo" />
+    <img class="hero-image hero-image-night" src="/assets/hero-night.webp" alt="Góc ghi chép bên cửa sổ nhìn ra thành phố dưới bầu trời sao" />
+    <div class="hero-overlay"></div>
+    <div class="hero-scroll"><span></span>SCROLL TO READ</div>
+  </header>
+
+  <Navbar active="home" />
+
+  <main class="layout">
+    <SiteSidebar />
+
+    <section class="feed" id="posts">
+      {posts.map((post) => (
+        <article class="post-card card reveal" data-search={`${post.data.title} ${postExcerpt(post)} ${post.data.tags.join(" ")}`}>
+          <div class="post-content">
+            <div class="post-meta post-meta-date"><time datetime={post.data.published.toISOString()}>{formatDate(post.data.published)}</time></div>
+            <h3><a href={postUrl(post)}>{post.data.title}</a></h3>
+            <p>{postExcerpt(post)}</p>
+            <div class="post-footer"><span>{readingTime(post.body)} phút đọc</span><a href={postUrl(post)}>Đọc tiếp <b>→</b></a></div>
+          </div>
+        </article>
+      ))}
+    </section>
+  </main>
+
+  <Footer />
+  <div class="search-modal" role="dialog" aria-modal="true" aria-label="Tìm kiếm" hidden>
+    <div class="search-panel">
+      <div class="search-input"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg><input type="search" placeholder="Tìm bài viết..." aria-label="Nhập từ khóa" /><button type="button" class="search-close">ESC</button></div>
+      <div class="search-results"><p>Thử tìm “Web3”, “CTF” hoặc “EVM”.</p></div>
+    </div>
+  </div>
+</BaseLayout>

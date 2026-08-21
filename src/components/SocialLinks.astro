@@ -1,0 +1,17 @@
+---
+import { Icon } from "astro-icon/components";
+
+const links = [
+  { name: "Email", icon: "fa6-solid:envelope", url: "https://mail.google.com/mail/?view=cm&to=thanhsang260205@gmail.com" },
+  { name: "GitHub", icon: "fa6-brands:github", url: "https://github.com/S4nGxG" },
+  { name: "Telegram", icon: "fa6-brands:telegram", url: "https://t.me/s4ngxg" },
+  { name: "Facebook", icon: "fa6-brands:facebook", url: "https://www.facebook.com/dtsang2212" },
+];
+---
+<div class="socials">
+  {links.map((link) => (
+    <a rel="me" href={link.url} target="_blank" aria-label={link.name} title={link.name}>
+      <Icon name={link.icon} />
+    </a>
+  ))}
+</div>

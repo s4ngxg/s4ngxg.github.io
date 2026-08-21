@@ -1,0 +1,13 @@
+---
+import ProfileCard from "./ProfileCard.astro";
+import SidebarWidgets from "./SidebarWidgets.astro";
+---
+
+<aside class="sidebar site-sidebar" aria-label="Thông tin tác giả và phân loại bài viết" transition:persist="author-sidebar">
+  <div class="site-sidebar-profile">
+    <ProfileCard />
+  </div>
+  <div class="site-sidebar-sticky">
+    <SidebarWidgets />
+  </div>
+</aside>

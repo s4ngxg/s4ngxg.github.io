@@ -1,0 +1,30 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props { headings: MarkdownHeading[] }
+const { headings } = Astro.props;
+const minDepth = headings.length ? Math.min(...headings.map((heading) => heading.depth)) : 2;
+const visibleHeadings = headings.filter((heading) => heading.depth < minDepth + 3);
+let sectionNumber = 0;
+---
+<aside class="article-toc" aria-label="Mục lục bài viết">
+  <div class="toc-card blog-toc-card">
+    <div class="toc-heading">Mục lục bài viết</div>
+    <div class="toc-scroll" id="toc-inner-wrapper">
+      <nav class="toc-list">
+        {visibleHeadings.map((heading) => {
+          if (heading.depth === minDepth) sectionNumber += 1;
+          const level = heading.depth - minDepth;
+          const label = level === 0 ? String(sectionNumber) : "";
+          return (
+            <a class="toc-link" href={`#${heading.slug}`} data-level={level}>
+              <span class="toc-marker">{label || <i class:list={["toc-dot", `toc-dot-level-${level}`]}></i>}</span>
+              <b class="toc-text">{heading.text.replace(/#$/, "")}</b>
+            </a>
+          );
+        })}
+        <div class="toc-active-indicator" aria-hidden="true"></div>
+      </nav>
+    </div>
+  </div>
+</aside>

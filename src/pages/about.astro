@@ -1,27 +1,22 @@
 ---
-
-import MainGridLayout from "../layouts/MainGridLayout.astro";
-
-import { getEntry } from "astro:content";
-import { render } from "astro:content";
-import Markdown from "@components/misc/Markdown.astro";
-import I18nKey from "../i18n/i18nKey";
-import { i18n } from "../i18n/translation";
-
-const aboutPost = await getEntry("spec", "about");
-
-if (!aboutPost) {
-	throw new Error("About page content not found");
-}
-
-const { Content } = await render(aboutPost);
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SiteSidebar from "../components/SiteSidebar.astro";
 ---
-<MainGridLayout title={i18n(I18nKey.about)} description={i18n(I18nKey.about)}>
-    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
-        <div class="card-base z-10 px-9 py-6 relative w-full ">
-            <Markdown class="mt-2">
-                <Content />
-            </Markdown>
-        </div>
+<BaseLayout title="About — s4ngxg" description="Trang web ghi lại những gì s4ngxg học tập.">
+  <header class="subpage-hero" id="top">
+    <img class="hero-image hero-image-day" src="/assets/hero-day.webp" alt="Góc viết bên cửa sổ vào ban ngày" />
+    <img class="hero-image hero-image-night" src="/assets/hero-night.webp" alt="Góc viết bên cửa sổ vào ban đêm" />
+  </header>
+  <Navbar active="about" />
+  <main class="layout subpage-layout" id="content">
+    <SiteSidebar />
+    <div class="subpage-content about-content">
+      <section class="about-copy-page card reveal">
+        <p>Tôi là <strong>s4ngxg</strong>. Đây là trang web để ghi lại những gì tôi học tập.</p>
+      </section>
     </div>
-</MainGridLayout>
+  </main>
+  <Footer />
+</BaseLayout>

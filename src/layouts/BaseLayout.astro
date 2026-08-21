@@ -1,0 +1,33 @@
+---
+import { ClientRouter } from "astro:transitions";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "s4ngxg",
+  description = "Ghi chép của s4ngxg về An toàn thông tin, Web3 Security, CTF và Smart Contract Audit.",
+} = Astro.props;
+---
+<!doctype html>
+<html lang="vi" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Roboto:wght@400;500;600;700&display=swap&subset=vietnamese" rel="stylesheet" />
+    <script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem('s4ngxg-theme')||'dark'}catch{document.documentElement.dataset.theme='dark'}</script>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/refine.css" />
+    <ClientRouter />
+  </head>
+  <body>
+    <slot />
+    <script is:inline src="/script.js" data-astro-rerun></script>
+  </body>
+</html>

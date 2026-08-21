@@ -1,4 +1,0 @@
-# About
-
-
-::github{repo=""}

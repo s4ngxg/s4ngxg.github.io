@@ -1,0 +1,22 @@
+---
+title: "Tiêu đề bài viết"
+published: 2026-08-21
+description: "Mô tả ngắn hiển thị ở trang chủ và kết quả tìm kiếm."
+lead: "Đoạn mở đầu nổi bật ở đầu trang bài viết."
+category: "Web3 Notes"
+tags: [Web3, Security]
+draft: false
+---
+
+## Tiêu đề phần thứ nhất
+
+Nội dung được viết bằng Markdown.
+
+### Tiêu đề con
+
+- Mục thứ nhất
+- Mục thứ hai
+
+## Tiêu đề phần thứ hai
+
+Các tiêu đề cấp 2 và cấp 3 sẽ tự xuất hiện trong mục lục bên phải.
