@@ -325,10 +325,10 @@ footer { width:min(1320px,calc(100% - 40px)); }
   letter-spacing:-.025em;
   line-height:1.28;
 }
-.article-card.markdown-content h1 { margin:2.8rem 0 1rem; font-size:clamp(29px,3.3vw,38px); }
-.article-card.markdown-content h2 { margin:3rem 0 1rem; font-size:clamp(25px,2.8vw,33px); }
-.article-card.markdown-content h3 { margin:2.35rem 0 .85rem; font-size:clamp(21px,2.25vw,26px); }
-.article-card.markdown-content h4 { margin:2rem 0 .75rem; font-size:18px; }
+.article-card.markdown-content h1 { margin:2.8rem 0 1rem; font-size:clamp(34px,3.8vw,44px); }
+.article-card.markdown-content h2 { margin:3rem 0 1rem; font-size:clamp(29px,3.2vw,38px); }
+.article-card.markdown-content h3 { margin:2.35rem 0 .85rem; font-size:clamp(24px,2.6vw,31px); }
+.article-card.markdown-content h4 { margin:2rem 0 .75rem; font-size:20px; }
 .article-card.markdown-content p { max-width:none; margin:1.05rem 0; color:var(--muted); font-size:16px; line-height:1.85; }
 .article-card.markdown-content ul,
 .article-card.markdown-content ol { max-width:none; margin:1rem 0 1.35rem; padding-left:1.55rem; font-size:16px; line-height:1.8; }
@@ -350,9 +350,10 @@ footer { width:min(1320px,calc(100% - 40px)); }
   .article-card.markdown-content p,
   .article-card.markdown-content ul,
   .article-card.markdown-content ol { font-size:15px; }
-  .article-card.markdown-content h1 { font-size:29px; }
-  .article-card.markdown-content h2 { font-size:26px; }
-  .article-card.markdown-content h3 { font-size:22px; }
+  .article-card.markdown-content h1 { font-size:32px; }
+  .article-card.markdown-content h2 { font-size:29px; }
+  .article-card.markdown-content h3 { font-size:24px; }
+  .article-card.markdown-content h4 { font-size:20px; }
 }
 
 /* Quiet home mark used by the header and footer */
@@ -687,6 +688,8 @@ html[data-theme="light"] .article-title p { color:#3f6b5e; }
 .archive-year > h2 { margin:2px 0 0; color:var(--accent); font:500 18px "DM Mono",monospace; }
 .archive-list { display:grid; gap:5px; }
 .archive-item { display:grid; grid-template-columns:115px minmax(0,1fr) auto; gap:22px; align-items:center; padding:19px 18px; border-radius:10px; transition:background .2s,transform .2s; }
+.archive-item[hidden],
+.archive-year[hidden] { display:none !important; }
 .archive-item:hover { background:var(--surface); transform:translateX(4px); }
 .archive-item time,.archive-item small { color:var(--muted); font:500 9px "DM Mono",monospace; }
 .archive-item h3 { margin:0; font:600 19px/1.35 "Noto Serif",serif; }
@@ -712,7 +715,7 @@ html[data-theme="light"] .article-title p { color:#3f6b5e; }
 .article-back { position:absolute; z-index:2; top:125px; left:max(25px,calc((100vw - 1220px)/2)); font-size:11px; }
 .article-title { position:absolute; z-index:2; right:25px; bottom:62px; left:max(25px,calc((100vw - 1220px)/2)); max-width:980px; }
 .article-title p { color:#b8d0c6; font:10px "DM Mono",monospace; }
-.article-title h1 { margin:12px 0 0; font:600 clamp(44px,5vw,70px)/1.08 "Noto Serif",serif; letter-spacing:-.04em; }
+.article-title h1 { margin:12px 0 0; font:600 clamp(36px,4.2vw,56px)/1.12 "Noto Serif",serif; letter-spacing:-.035em; }
 .article-layout { position:relative; z-index:3; width:min(1220px,calc(100% - 40px)); margin:-28px auto 95px; display:grid; grid-template-columns:minmax(0,900px) 260px; gap:38px; align-items:start; }
 .article-reading { min-width:0; }
 .article-card { margin:0; padding:clamp(50px,6vw,78px) clamp(34px,7vw,88px); border:1px solid var(--line); border-radius:12px; background:var(--surface-solid); box-shadow:var(--shadow); }
@@ -757,7 +760,7 @@ html[data-theme="light"] .article-title p { color:#3f6b5e; }
   .article-hero { height:650px; }
   .article-back { top:100px; left:20px; }
   .article-title { left:20px; bottom:48px; }
-  .article-title h1 { font-size:42px; }
+  .article-title h1 { font-size:34px; }
   .article-layout { width:min(100% - 18px,680px); margin-top:-18px; display:flex; flex-direction:column; gap:14px; }
   .article-toc { position:static; order:-1; width:100%; }
   .toc-card { padding:18px; }
@@ -1046,10 +1049,12 @@ html[data-theme="light"] .article-title p { color:#3f6b5e; }
   letter-spacing:normal;
   overflow-wrap:anywhere;
 }
-.article-card.markdown-content h1 { margin:0 0 26.6667px; font-size:30px; font-weight:800; line-height:36px; }
-.article-card.markdown-content h2 { margin:48px 0 24px; font-size:24px; font-weight:700; line-height:32px; }
-.article-card.markdown-content h3 { margin:32px 0 12px; font-size:20px; font-weight:600; line-height:32px; }
-.article-card.markdown-content h4 { margin:24px 0 8px; font-size:16px; font-weight:600; line-height:24px; }
+.article-card.markdown-content h1 { margin:0 0 26.6667px; font-size:36px; font-weight:800; line-height:42px; }
+.article-card.markdown-content h2 { margin:48px 0 24px; font-size:30px; font-weight:700; line-height:38px; }
+.article-card.markdown-content h3 { margin:32px 0 12px; font-size:25px; font-weight:600; line-height:34px; }
+.article-card.markdown-content h4 { margin:24px 0 8px; font-size:21px; font-weight:600; line-height:29px; }
+.article-card.markdown-content h5 { margin:20px 0 7px; font-size:18px; font-weight:600; line-height:26px; }
+.article-card.markdown-content h6 { margin:18px 0 6px; font-size:16px; font-weight:600; line-height:24px; }
 
 .article-card.markdown-content p {
   max-width:none;
@@ -1171,9 +1176,11 @@ html[data-theme="light"] .article-title p { color:#3f6b5e; }
   .article-card.markdown-content p,
   .article-card.markdown-content ul,
   .article-card.markdown-content ol { font-size:14px; line-height:24.5px; }
-  .article-card.markdown-content h1 { font-size:26.25px; line-height:31.5px; }
-  .article-card.markdown-content h2 { margin-top:42px; font-size:21px; line-height:28px; }
-  .article-card.markdown-content h3 { margin-top:28px; font-size:17.5px; line-height:28px; }
+  .article-card.markdown-content h1 { font-size:31px; line-height:36px; }
+  .article-card.markdown-content h2 { margin-top:42px; font-size:27px; line-height:34px; }
+  .article-card.markdown-content h3 { margin-top:28px; font-size:23px; line-height:30px; }
+  .article-card.markdown-content h4 { font-size:20px; line-height:27px; }
+  .article-card.markdown-content h5 { font-size:18px; line-height:25px; }
   .article-card.markdown-content .code-block pre { padding:10.5px 17.5px; font-size:12.25px!important; line-height:21px!important; }
 }
 
